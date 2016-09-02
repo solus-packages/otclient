@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Tibia
+Comment=An alternative Tibia client
+Exec=otclient
+Icon=otclient
+Terminal=false
+Type=Application
+Categories=Game;
+StartupNotify=false
+StartupWMClass=otclient

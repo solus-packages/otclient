@@ -1,0 +1,46 @@
+name       : otclient
+version    : 0.6.6
+release    : 1
+source     :
+    - https://github.com/edubart/otclient/archive/a6a50fa1624f38fc173f79abdfcafcb29c42c354.tar.gz : fe15375478a500d8c8451930ef4fb9ebc16d7736ddcd8a0fdfa4c297aa6d8923
+    - https://remeresmapeditor.com/files/tibia/tibia860.tgz : 68b787c1a1cca1c6f95b16de81b1433bc908bbd8cb84aa357a34845bb35acdf7
+    - http://static.tibia.com/download/tibia1096.tgz : 11bec465da38ae8e6d4d773c54142fa38b6f99207b3a9ce118917e31b32a6488
+license    : MIT
+component  : games.mmo
+summary    : An alternative Tibia client
+description: |
+    An alternative Tibia client for usage with otserv.
+libsplit   : no
+builddeps  :
+    - pkgconfig(glew)
+    - pkgconfig(libzip)
+    - pkgconfig(openal)
+    - pkgconfig(vorbis)
+    - libboost-devel
+    - luajit-devel
+    - physfs-devel
+rundeps    :
+    - libzip
+    - luajit
+setup      : |
+    %cmake \
+        -DLUAJIT=on \
+        -DUSE_STATIC_LIBS=off
+build      : |
+    %make
+install    : |
+    %make_install
+
+    for i in 16 22 24 32 48 64 96 256; do \
+        install -D -m 00644 $pkgfiles/icons/"$i".png $installdir/usr/share/icons/hicolor/"$i"x"$i"/apps/otclient.png; \
+    done
+
+    install -D -m 00644 $pkgfiles/otclient.desktop $installdir/usr/share/applications/otclient.desktop
+
+    mkdir $workdir/860 && tar -xf $sources/tibia860.tgz -C $workdir/860
+    mkdir $workdir/1096 && tar -xf $sources/tibia1096.tgz -C $workdir/1096 
+
+    for file in Tibia.dat Tibia.spr; do \
+        install -D -m 00644 $workdir/860/Tibia/"$file" $installdir/usr/share/otclient/data/things/860/"$file"; \
+        install -D -m 00644 $workdir/1096/Tibia/"$file" $installdir/usr/share/otclient/data/things/1096/"$file"; \
+    done
