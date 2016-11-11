@@ -2,8 +2,8 @@
     <Source>
         <Name>otclient</Name>
         <Packager>
-            <Name>Jon West</Name>
-            <Email>radicalraccoon@cryptolab.net</Email>
+            <Name>Ikey Doherty</Name>
+            <Email>ikey@solus-project.com</Email>
         </Packager>
         <License>MIT</License>
         <PartOf>games.mmo</PartOf>
@@ -33,12 +33,12 @@
         </Files>
     </Package>
     <History>
-        <Update release="1">
-            <Date>2016-09-01</Date>
+        <Update release="3">
+            <Date>2016-11-11</Date>
             <Version>0.6.6</Version>
             <Comment>Packaging update</Comment>
-            <Name>Jon West</Name>
-            <Email>radicalraccoon@cryptolab.net</Email>
+            <Name>Ikey Doherty</Name>
+            <Email>ikey@solus-project.com</Email>
         </Update>
     </History>
 </PISI>

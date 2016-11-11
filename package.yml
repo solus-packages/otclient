@@ -1,6 +1,6 @@
 name       : otclient
 version    : 0.6.6
-release    : 2
+release    : 3
 source     :
     - https://github.com/edubart/otclient/archive/a6a50fa1624f38fc173f79abdfcafcb29c42c354.tar.gz : fe15375478a500d8c8451930ef4fb9ebc16d7736ddcd8a0fdfa4c297aa6d8923
     - https://remeresmapeditor.com/files/tibia/tibia860.tgz : 68b787c1a1cca1c6f95b16de81b1433bc908bbd8cb84aa357a34845bb35acdf7
